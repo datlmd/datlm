@@ -23,9 +23,19 @@ $config['fuel_mode'] = 'auto';
 
 // specifies which modules are allowed to be used in the fuel admin
 $config['modules_allowed'] = array(
-    'user_guide',
-    'backup',
-    'blog',
+		'user_guide',
+		'backup',
+		'blog',
+		'google_keywords',
+		'validate',
+		'page_analysis',
+		'tester',
+		'cronjobs',
+		'campaign_monitor',
+		'sync',
+		'search',
+		'forms',
+		'locations',
 );
 
 // used for system emails
