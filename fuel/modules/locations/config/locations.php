@@ -6,7 +6,7 @@
 */
 $config['nav']['locations'] = array(
 		'locations/points' => 'Location Points',
-		//'locations/zip_codes' => 'Zip Codes',
+		'locations/zip_codes' => 'Zip Codes',
 	);
 
 
