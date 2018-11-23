@@ -36,6 +36,7 @@ $config['modules_allowed'] = array(
 		'search',
 		'forms',
 		'locations',
+		'articles',
 );
 
 // used for system emails
