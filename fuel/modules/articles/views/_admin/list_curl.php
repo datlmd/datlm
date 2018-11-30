@@ -4,7 +4,9 @@
     <?php foreach($menus as $menu) : ?>
         <?=$menu['title']?><br/>
         <?php foreach($menu['articles'] as $article) : ?>
-            <?=$article['title']?><br/>
+            <?= $article['title']?><br/>
+            <?= $article['detail']['note']?><br/>
+            <?= count($article['detail']['content'])?><br/><br/>
         <?php endforeach; ?>
         <hr>
     <?php endforeach; ?>

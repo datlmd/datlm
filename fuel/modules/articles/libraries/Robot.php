@@ -239,7 +239,6 @@ class Robot {
                                     $list[$i]['href'] = str_replace('/', '_', $list[$i]['href']) . '?t=' . $href_end;
                                 }
 
-
                                 $list[$i]['title'] = strip_tags(str_replace("hình ảnh", " ", $title));
                                 $list[$i]['image'] = strip_tags(trim($img));
                                 $list[$i]['note'] = trim($note);
@@ -247,7 +246,6 @@ class Robot {
                                 $list[$i]['domain'] = $domain;
                                 $list[$i]['cate'] = $cate;
                                 $list[$i]['url_cate'] = $url_cate;
-
 
                                 $i++;
 
@@ -277,6 +275,7 @@ class Robot {
         $detail = array();
         foreach ($arr_attribute as $key => $val) {
             $detail = $this->_get_detail($val, $url, $url_domain, $url_detail);
+
             if (isset($detail['title']) && isset($detail['note']) && isset($detail['content']) && !empty($detail['title']) && !empty($detail['note']) && !empty($detail['content'])) {
                 break;
             }
@@ -320,7 +319,7 @@ class Robot {
 //                //$content = str_ireplace("href=", "href=", $content);
 //            }
             $detail[$key] = str_ireplace($url, '', $detail[$key]);
-            $detail[$key] = str_ireplace('href="', 'href="' . $url_detail, $detail[$key]);
+            //$detail[$key] = str_ireplace('href="', 'href="' . $url_detail, $detail[$key]);
         }
 
         return $detail;

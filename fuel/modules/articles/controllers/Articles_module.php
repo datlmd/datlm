@@ -46,6 +46,10 @@ class Articles_module extends Fuel_base_controller {
             }
 
             $list_news = $this->robot->get_list_news($attribute_cate, $url_domain , $menu['title'], $url, $domain, 5);
+            foreach ($list_news as $k => $news) {
+                $list_news[$k]['detail'] = $this->robot->get_detail($info_domain['attribute_detail'], $url_domain . $news['href_root'], $url_domain, base_url($info_domain['domain_id']));
+            }
+
             $list_menu[$key]['articles'] = $list_news;
         }
 
@@ -63,7 +67,7 @@ class Articles_module extends Fuel_base_controller {
 
         $data['attribute_menu'] = array(
             //'content' => 'div.navbar',
-            'start' => 'li class="kmli',
+            'start' => 'kmli',
             'end' => '/a',
             'title' => '/title=\"(.*?)\"/',
             'href' => '/href=\"(.*?)\"/',
@@ -71,7 +75,7 @@ class Articles_module extends Fuel_base_controller {
 
         $data['attribute_cate'] = array(
             'attribute_cate_1' => array(
-                'start' => 'li class="ktncli"',
+                'start' => 'ktncli',
                 'end' => '</li',
                 'title' => '/title=\"(.*?)\"/',
                 'note' => '/span class=\"ktncli-sapo\">(.*?)</',
@@ -89,7 +93,7 @@ class Articles_module extends Fuel_base_controller {
                 'href' => '/href=\'(.*?)\'/',
             ),
             'attribute_cate_3' => array(
-                'start' => 'tsn-featured-news"',
+                'start' => 'tsn-featured-news',
                 'end' => '</h3',
                 'title' => '/title=\"(.*?)\"/',
                 'note' => '/span class=\"ktncli-sapo\">(.*?)</',
@@ -98,7 +102,7 @@ class Articles_module extends Fuel_base_controller {
                 'href' => '/href=\"(.*?)\"/',
             ),
             'attribute_cate_4' => array(
-                'start' => 'tsn-news normal clearfix"',
+                'start' => 'tsn-news normal clearfix',
                 'end' => '</li',
                 'title' => '/title=\"(.*?)\"/',
                 'note' => '/p class=\"tn-sapo\">(.*?)</',
@@ -113,8 +117,8 @@ class Articles_module extends Fuel_base_controller {
                 'title' => '/h1 class=\"kbwc-title\">(.*?)</',
                 'note' => '/h2 class=\"knc-sapo\<\/h2/"
 (.*?)/',
-                'content' => '/div class=\"knc-content\"(.*?)knc-rate-link/',
-                'datetime'	=> '/span class=\"kbwcm-time\">(.*?)<\/span/',
+                'content' => 'div.knc-content',
+                'datetime'	=> 'span.kbwcm-time',
                 //'author' 		=> '/class="author">(.*?)</',
             ),
         );
