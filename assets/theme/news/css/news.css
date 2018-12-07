@@ -3,6 +3,7 @@
     font-size: 14px;
     color: #2f2f2f;
     background-color: #f9f7f1;
+    padding: 15px 0;
 }
 .mag_news header{
     font-family: 'Playfair Display', serif;
@@ -12,7 +13,6 @@
     display: inline-block;
     line-height: 72px;
     margin-bottom: 20px;
-
 }
 .mag_news p{
     margin-top: 0;
@@ -21,7 +21,6 @@
 .mag_news .head{
     text-align: center;
     position: relative;
-
 
 }
 
@@ -51,11 +50,11 @@
     word-spacing: -.31em;
     display: inline-block;
     margin: 30px 2% 0 2%;
-
-
+    width: 100%;
 }
-.mag_news .collumns{
 
+.mag_news .collumns{
+    margin: 0 auto;
 }
 
 .mag_news .collumn{

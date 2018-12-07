@@ -37,7 +37,7 @@ RESPONSIVE
      margin: 0;
      padding: 0;
      overflow-x: hidden;
-}
+ }
  h1, h2, h3, h4, h5, h6 {
      font-family: 'Nunito Sans', sans-serif;
      font-weight: 700;
@@ -258,7 +258,7 @@ RESPONSIVE
      display:inline-block;
 }
  .nav-logo .logo > img {
-     width: 100%;
+     width: 200px;
      max-height: 70px;
 }
 /*----------------------------*\
@@ -867,6 +867,8 @@ RESPONSIVE
  #footer {
      padding-bottom: 40px;
      margin-top: 40px;
+     background: #ffffff url('../img/bg_news.png') no-repeat;
+     background-position: center top;
 }
  #footer .container {
      padding-top: 80px;
