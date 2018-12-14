@@ -60,7 +60,8 @@
 .mag_news .collumn{
     font-size: 14px;
     line-height: 20px;
-    width: 17.5%;
+    /*width: 17.5%;*/
+    width: 31%;
     display: inline-block;
     padding: 0 1% 0 1%;
     vertical-align: top;
@@ -116,13 +117,14 @@
 .mag_news .collumn .headline.hl3{
     font-weight: 400;
     font-style: italic;
-    font-size: 36px;
+    font-size: 26px;
+    text-transform: uppercase;
     box-sizing: border-box;
     padding: 10px 0 10px 0;
 }
 .mag_news .collumn .headline.hl4{
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     box-sizing: border-box;
     padding: 10px 0 10px 0;
 }

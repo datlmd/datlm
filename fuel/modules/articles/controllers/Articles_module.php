@@ -38,6 +38,9 @@ class Articles_module extends Fuel_base_controller {
 
         $list_menu = $this->robot->get_menu($attribute_menu, $url_domain, $domain_id);
 
+        $this->load->module_model(ARTICLES_FOLDER, 'news_model');
+        $this->load->module_model(BLOG_FOLDER, 'blog_posts_model');
+
         foreach ($list_menu as $key => $menu) {
             if (stripos($menu['href'], "http://") !== false) {
                 $url =  $menu['href'];
@@ -47,7 +50,37 @@ class Articles_module extends Fuel_base_controller {
 
             $list_news = $this->robot->get_list_news($attribute_cate, $url_domain , $menu['title'], $url, $domain, 5);
             foreach ($list_news as $k => $news) {
-                $list_news[$k]['detail'] = $this->robot->get_detail($info_domain['attribute_detail'], $url_domain . $news['href_root'], $url_domain, base_url($info_domain['domain_id']));
+                $detail = $this->robot->get_detail($info_domain['attribute_detail'], $url_domain . $news['href_root'], $url_domain, base_url($info_domain['domain_id']));
+                $list_news[$k]['detail'] = $detail;
+
+                // create comment
+                $news_detail = $this->news_model->create();
+
+                $news_detail->title = $detail['title'];
+                $news_detail->content_filtered = $detail['note'];
+                $news_detail->content = $detail['content'];
+                $news_detail->slug = $news['href_root'];
+                $news_detail->main_image = $news['image'];
+                $news_detail->page_title = $detail['title'];
+                $news_detail->og_title = $detail['title'];
+                $news_detail->resource_url = $news['href_root'];
+
+                $news_detail->published = 'yes';
+                $news_detail->save();
+
+                // create comment
+                $blog_detail = $this->blog_posts_model->create();
+
+                $blog_detail->title = $detail['title'];
+                $blog_detail->content_filtered = $detail['note'];
+                $blog_detail->content = $detail['content'];
+                $blog_detail->slug = $news['href_root'];
+                $blog_detail->main_image = $news['image'];
+
+                $blog_detail->published = 'yes';
+                $blog_detail->save();
+
+
             }
 
             $list_menu[$key]['articles'] = $list_news;
