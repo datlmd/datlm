@@ -29,15 +29,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="assets/theme/news/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=site_url('assets/theme/news/css/bootstrap.min.css')?>"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="assets/theme/news/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=site_url('assets/theme/news/css/font-awesome.min.css')?>">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="assets/theme/news/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=site_url('assets/theme/news/css/style.css')?>"/>
 
-    <link type="text/css" rel="stylesheet" href="assets/theme/news/css/news.css"/>
+    <link type="text/css" rel="stylesheet" href="<?=site_url('assets/theme/news/css/news.css')?>"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,18 +57,24 @@
             <div class="container">
                 <!-- logo -->
                 <div class="nav-logo">
-                    <a href="index.html" class="logo"><img src="assets/theme/news/img/logo.png" alt=""></a>
+                    <a href="index.html" class="logo"><img src="<?=site_url('assets/theme/news/img/logo.png')?>" alt=""></a>
                 </div>
                 <!-- /logo -->
-
+                <?php
+                $this->load->model('fuel_categories_model');
+                    $categories = $this->fuel_categories_model->find_all(array('published' => 'yes', 'context' => 'top_menu'));
+                ?>
                 <!-- nav -->
                 <ul class="nav-menu nav navbar-nav">
-                    <li><a href="category.html">News</a></li>
-                    <li><a href="category.html">Popular</a></li>
-                    <li class="cat-1"><a href="category.html">Web Design</a></li>
-                    <li class="cat-2"><a href="category.html">JavaScript</a></li>
-                    <li class="cat-3"><a href="category.html">Css</a></li>
-                    <li class="cat-4"><a href="category.html">Jquery</a></li>
+                    <?php foreach($categories as $widget) : ?>
+                        <li class="cat-1"><a href="category.html"><?=$widget->name?></a></li>
+                    <?php endforeach; ?>
+<!--                    <li><a href="category.html">News</a></li>-->
+<!--                    <li><a href="category.html">Popular</a></li>-->
+<!--                    <li class="cat-1"><a href="category.html">Web Design</a></li>-->
+<!--                    <li class="cat-2"><a href="category.html">JavaScript</a></li>-->
+<!--                    <li class="cat-3"><a href="category.html">Css</a></li>-->
+<!--                    <li class="cat-4"><a href="category.html">Jquery</a></li>-->
                 </ul>
                 <!-- /nav -->
 

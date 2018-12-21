@@ -73,9 +73,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- /Footer -->
 
 <!-- jQuery Plugins -->
-<script src="assets/theme/news/js/jquery.min.js"></script>
-<script src="assets/theme/news/js/bootstrap.min.js"></script>
-<script src="assets/theme/news/js/main.js"></script>
+<script src="<?=site_url('assets/theme/news/js/jquery.min.js')?>"></script>
+<script src="<?=site_url('assets/theme/news/js/bootstrap.min.js')?>"></script>
+<script src="<?=site_url('assets/theme/news/js/main.js')?>"></script>
 
 </body>
 </html>
